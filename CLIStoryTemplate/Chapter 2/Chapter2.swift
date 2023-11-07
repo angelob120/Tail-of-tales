@@ -1,30 +1,33 @@
-//
-//  Chapter2.swift
-//  CLIStoryTemplate
-//
-
 import Foundation
 
-// Squirrel class and its extension
+// Enums to represent the status within the community
+enum Status {
+    case exiled
+    case respected
+    case undecided
+}
+
+// Class to define squirrels
 class Squirrel {
     var name: String
     var hasTail: Bool
-    
+    var status: Status = .undecided
+
     init(name: String, hasTail: Bool) {
         self.name = name
         self.hasTail = hasTail
     }
-    
+
     func displayIdentity() -> String {
         return hasTail ? "\(name), the squirrel with a tail" : "\(name), the tailless squirrel"
     }
-    
+
     func pleadToCouncil() {
         if !hasTail {
             print("\(name): 'Elders, it's true, my tail was taken by a fox. But deep inside, my spirit remains unbroken. I have journeyed far and learned much. I ask not for pity but for understanding and acceptance. I am more than just my tail.'")
         }
     }
-    
+
     func greet(oldFriend friend: Squirrel) {
         print("\(name): 'Hello, \(friend.name). It's been a long time.'")
         if friend.name == "Robert" {
@@ -35,14 +38,14 @@ class Squirrel {
     }
 }
 
-// SquirrelCouncil class
+// Class for Squirrel Council
 class SquirrelCouncil {
     var members: [Squirrel]
-    
+
     init(members: [Squirrel]) {
         self.members = members
     }
-    
+
     func discussReturn(of squirrel: Squirrel) {
         print("Elder Oak: 'Is that... Damian?'")
         print("Elder Pine: 'It seems so. But without his tail...'")
@@ -50,17 +53,25 @@ class SquirrelCouncil {
             print("Elder Birch: 'Welcome back, \(squirrel.name)! The community has missed you.'")
         } else {
             print("Elder Birch: 'You still don't have a tail, \(squirrel.name). Why have you returned?'")
+            // Here we could add a conditional to decide Damian's fate
+            if Int.random(in: 0...1) == 0 {
+                squirrel.status = .exiled
+                print("Elder Birch: 'I'm sorry, \(squirrel.name), but the community has decided. You must leave.'")
+            } else {
+                squirrel.status = .respected
+                print("Elder Birch: 'Your bravery is unmatched, \(squirrel.name). You may stay.'")
+            }
         }
     }
 }
 
-// SquirrelCommunity struct
+// Struct for Squirrel Community
 struct SquirrelCommunity {
     var inhabitants: [Squirrel]
-    
+
     func communityReaction(to squirrel: Squirrel) {
-        let supportiveSquirrels = inhabitants.filter { $0.name != squirrel.name && Int.random(in: 0...1) == 1 }
-        
+        let supportiveSquirrels = inhabitants.filter { $0.name != squirrel.name && $0.status == .respected }
+
         if supportiveSquirrels.count > inhabitants.count / 2 {
             print("Lilly: 'I stand with Damian! He's brave and deserves our respect.'")
             print("James: 'I too support Damian. It's the heart that matters, not the tail.'")
@@ -73,7 +84,7 @@ struct SquirrelCommunity {
     }
 }
 
-// Chapter 2: Damian's Return
+// Function for Chapter 2
 func chapterTwo() {
     let damian = Squirrel(name: "Damian", hasTail: false)
 
@@ -97,9 +108,8 @@ func chapterTwo() {
         Squirrel(name: "Lilly", hasTail: true),
         Squirrel(name: "James", hasTail: true),
         Squirrel(name: "Anna", hasTail: true),
-        damian,
-        Squirrel(name: "Robert", hasTail: true), // Adding a new character
-        Squirrel(name: "Mia", hasTail: true)     // Adding another new character
+        Squirrel(name: "Robert", hasTail: true), // Old friend
+        Squirrel(name: "Mia", hasTail: true)     // Old friend
     ]
 
     let squirrelCommunity = SquirrelCommunity(inhabitants: communityMembers)
@@ -107,10 +117,32 @@ func chapterTwo() {
     print("\nThe community gazes upon Damian, weighing his words. The sun casts long shadows as the day nears its end.")
     squirrelCommunity.communityReaction(to: damian)
 
-    print("\nAmong the crowd, Damian spots Robert and Mia, his childhood friends.")
-    damian.greet(oldFriend: communityMembers[4])  // Greeting Robert
-    damian.greet(oldFriend: communityMembers[5])  // Greeting Mia
+    // Loop through each community member for personalized reactions
+    for communityMember in communityMembers {
+        if communityMember.name != damian.name {
+            damian.greet(oldFriend: communityMember)
+        }
+    }
+
+    // Check Damian's status after the council's decision
+    switch damian.status {
+    case .exiled:
+        print("\nDespite some support, the council's decision is final. Damian is to be exiled.")
+        // Additional story elements could show Damian leaving or deciding his next move
+    case .respected:
+        print("\nDamian's plea has moved the community. He is allowed to stay and reclaim his place.")
+        // Additional story elements could show his reintegration into the community
+    case .undecided:
+        print("\nDamian's fate hangs in the balance as the community is still undecided.")
+        // Additional story elements could involve further deliberation or challenges
+    }
+
+    // The chapter concludes with the community's final sentiment
+    if damian.status != .exiled {
+        print("As night falls, the community gathers in a show of solidarity, tails or no tails.")
+    } else {
+        print("As Damian turns to leave, the community's whispers fill the night air, a mix of sorrow and respect.")
+    }
 }
 
-// Call the chapterTwo function to experience the story.
 //chapterTwo()

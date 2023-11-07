@@ -1,3 +1,75 @@
+import Foundation
+
+// Enums to define constants
+enum ForestArea {
+    case edge
+    case deepForest
+    case colony
+}
+
+// Structs to define characters
+struct Character {
+    var name: String
+    var tailSize: String
+    var description: String
+    var isTailIntact: Bool
+}
+
+// Function to run Chapter 1 of the story
+func chapterOne() {
+    // Define main character with an optional in case he needs to be nilled later in the story
+    var kingDamian: Character? = Character(name: "Damian", tailSize: "big and luxurious", description: "a courageous squirrel king with a magnificent tail", isTailIntact: true)
+    
+    // Arrays to store characters and forage items
+    let squirrellettes = [
+        Character(name: "Sally", tailSize: "average", description: "average", isTailIntact: true),
+        Character(name: "Lilly", tailSize: "average", description: "average", isTailIntact: true),
+        Character(name: "Josie", tailSize: "average", description: "average", isTailIntact: true)
+    ]
+
+    let forage = ["berries", "nuts", "seeds"]
+    
+    // Print the opening of the story
+    print("Once upon a time, in a dark, sun-dappled forest, there lived a squirrel named \(kingDamian?.name ?? "The King"). \(kingDamian?.name ?? "He") was not your typical squirrel; \(kingDamian?.description ?? "")")
+
+    // A loop to simulate foraging
+    for item in forage {
+        print("\(kingDamian?.name ?? "The King") forages for \(item).")
+    }
+    
+    // Conditional to handle the encounter with the fox
+    if kingDamian?.isTailIntact == true {
+        print("\(kingDamian?.name ?? "The King") encountered a fox!")
+        // Simulate the bite
+        kingDamian?.isTailIntact = false
+        kingDamian?.tailSize = "none"
+        print("Oh no! The fox has bitten off \(kingDamian?.name ?? "The King")'s tail!")
+    }
+    
+    // King Damian mourns the loss of his tail
+    if !(kingDamian?.isTailIntact ?? true) {
+        print("\(kingDamian?.name ?? "The King") mourns the loss of his beautiful tail, once the pride of the land.")
+    }
+    
+    // Optional binding to unwrap the kingDamian optional
+    if let damian = kingDamian {
+        print("Despite the loss, \(damian.name) remains determined to lead the squirrellettes safely through the forest.")
+    } else {
+        print("The story cannot continue without our king.")
+    }
+}
+
+//chapterOne()
+
+
+
+
+
+
+
+
+
+
 //
 //  Chapter1.swift
 //  CLIStoryTemplate
@@ -8,23 +80,23 @@
 //  Created by Nychelle Gaines on 11/6/23.
 //
 
-import Foundation
-
-struct Character {
-    var name: String
-    var tailSize: String
-    var description: String
-}
-   
-var damian = Character(name: "Damian", tailSize: "big and luxurious", description: "a courageous squirrel with a magnificent tail")
-
-var squirrellettes: [Character] = [squirrellette1, squirrellette2, squirrellette3]
-
-let squirrellette1 = Character(name: "sally", tailSize: "average", description: "average")
-let squirrellette2 = Character(name: "lilly", tailSize: "average", description: "average")
-let squirrellette3 = Character(name: "josie", tailSize: "average", description: "average")
-
-let forage = ["berries", "nuts", "seeds"]
+//import Foundation
+//
+//struct Character {
+//    var name: String
+//    var tailSize: String
+//    var description: String
+//}
+//   
+//var damian = Character(name: "Damian", tailSize: "big and luxurious", description: "a courageous squirrel with a magnificent tail")
+//
+//var squirrellettes: [Character] = [squirrellette1, squirrellette2, squirrellette3]
+//
+//let squirrellette1 = Character(name: "sally", tailSize: "average", description: "average")
+//let squirrellette2 = Character(name: "lilly", tailSize: "average", description: "average")
+//let squirrellette3 = Character(name: "josie", tailSize: "average", description: "average")
+//
+//let forage = ["berries", "nuts", "seeds"]
 
 //In a loop is gonna be him foraging for the forage array, in the lop will be him getting each iteam
     
@@ -32,11 +104,11 @@ let forage = ["berries", "nuts", "seeds"]
 
 //******************************************************************************************
 
-func chapterOne() {
-    print("Once upon a time, in a dark, sun-dappled forest, there lived a squirrel named \(damian.name) \(damian.name) was not your typical squirrel; \(damian.description)")
-
-}
-chapterOne()
+//func chapterOne() {
+//    print("Once upon a time, in a dark, sun-dappled forest, there lived a squirrel named \(damian.name) \(damian.name) was not your typical squirrel; \(damian.description)")
+//
+//}
+//chapterOne()
 
 //+Variables and constants, Conditionals, +Functions, +Arrays, Loops, +Structs, Enums, Optionals
 
