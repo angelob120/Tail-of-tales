@@ -15,4 +15,4 @@ func readStory() {
 }
 
 readStory()
-
+let protagonistName = "Damian"
