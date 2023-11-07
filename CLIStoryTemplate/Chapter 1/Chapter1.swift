@@ -29,6 +29,8 @@ var returned : Bool = true
 
 
 
+//make a loop for berry picking
+
 
 
 
@@ -43,9 +45,14 @@ func chapterOne() {
     print("Once upon a time, in a dark, sun-dappled forest, there lived a squirrel named \(damian.name) \(damian.name) was not your typical squirrel; \(damian.description)")
     
     print("Damian was invited by the squirrellettes to go find food so he followed them to the patch in the forest close to the foxes territory.")
+    print("Their agile paws and sharp eyes scouring the terrain, they picked ripe \(food.berries) from bushes, searched the ground for dropped nuts, and unearthed seeds from the rich soil.")
     print("As they diligently filled their cheek pouches and reveled in nature's abundance.A sly fox with acute instincts stepped out of the undergrowth and eyed the squirrel gathering with a menacing look.")
     didGoToForest = true
     goToForest()
+    returned = true
+    returnFromForest()
+    
+
  
     }
 
@@ -62,6 +69,7 @@ func goToForest() {
 enum food {
 case berries,nuts, seeds
 }
+let Food = food.berries
 
 
 func returnFromForest() {
@@ -74,13 +82,8 @@ func returnFromForest() {
     
     }
 }
+     
 
-func test_1() {
-    returnFromForest()
-    returned = true
-}
-   
-    
     
     
     //chapterOne()
@@ -89,7 +92,7 @@ func test_1() {
     
     //+Variables and constants, +Conditionals, +Functions, +Arrays, Loops, +Structs, +Enums, Optionals
     
-    // paragraph1 = "Once upon a time, in a dark, sun-dappled forest, there lived a squirrel named Damian. Damian was not your typical squirrel; he was tremendously self-centered. His lush, bushy tail was on display as he pranced around the treetops for the enjoyment of any nearby forest animal. He thought that the woodland's most magnificent feature was his tail. He was certain that he was the most daring and charming squirrel in the forest, and he used every opportunity to prove it. Done
+    // paragrap h1 = "Once upon a time, in a dark, sun-dappled forest, there lived a squirrel named Damian. Damian was not your typical squirrel; he was tremendously self-centered. His lush, bushy tail was on display as he pranced around the treetops for the enjoyment of any nearby forest animal. He thought that the woodland's most magnificent feature was his tail. He was certain that he was the most daring and charming squirrel in the forest, and he used every opportunity to prove it. Done
     
     // paragraph2 = "Damian was hopping from branch to limb one bright, beautiful morning, bragging about his tail. Damian couldn't resist the opportunity to flaunt his tail. A group of squirrelletts came up to him giggling and fauning over his good looks, Damian your tail is so big and luxurious. Of course, it is! It's a tail that makes every squirrel envious. Nobody in this forest has a tail like mine! We are going to a opening patch deep in the forest near the edge of the foxes territory one of the girls said. The berries there are the juiciest and most delicious you'll ever taste. I'd love to show you, but it's a bit of a trek, and I'm worried about the foxes. Would you be willing to accompany us and keep an eye out for any danger? I'm sure a squirrel as courageous as you won't have any trouble." Done
     
