@@ -1,68 +1,70 @@
+//
+//  Chapter1.swift
+//  CLIStoryTemplate
+//
+
 import Foundation
 
-// Enums to define constants
+// Enums to represent different areas within the forest.
 enum ForestArea {
-    case edge
-    case deepForest
-    case colony
+    case edge // The outer perimeter of the forest.
+    case deepForest // The dense, central part of the forest.
+    case colony // The area where the squirrels live.
 }
 
-// Structs to define characters
+// Structs to define the attributes of characters in the story.
 struct Character {
-    var name: String
-    var tailSize: String
-    var description: String
-    var isTailIntact: Bool
+    var name: String // The character's name.
+    var tailSize: String // Descriptive size of the tail.
+    var description: String // A brief description of the character.
+    var isTailIntact: Bool // Boolean to indicate if the character's tail is intact.
 }
 
-// Function to run Chapter 1 of the story
+// Function to run the first chapter of the story.
 func chapterOne() {
-    // Define main character with an optional in case he needs to be nilled later in the story
+    // Define the main character, kingDamian, as an optional in case he needs to be removed from the story later.
     var kingDamian: Character? = Character(name: "Damian", tailSize: "big and luxurious", description: "a courageous squirrel king with a magnificent tail", isTailIntact: true)
     
-    // Arrays to store characters and forage items
-    let squirrellettes = [
+    // Arrays to store other characters and items to be foraged.
+    let squirrellettes = [ // Supporting characters in the story.
         Character(name: "Sally", tailSize: "average", description: "average", isTailIntact: true),
         Character(name: "Lilly", tailSize: "average", description: "average", isTailIntact: true),
         Character(name: "Josie", tailSize: "average", description: "average", isTailIntact: true)
     ]
 
-    let forage = ["berries", "nuts", "seeds"]
+    let forage = ["berries", "nuts", "seeds"] // Items that the characters will forage for.
     
-    // Print the opening of the story
+    // Print the opening scene of the story using optional chaining and nil-coalescing operator.
     print("Once upon a time, in a dark, sun-dappled forest, there lived a squirrel named \(kingDamian?.name ?? "The King"). \(kingDamian?.name ?? "He") was not your typical squirrel; \(kingDamian?.description ?? "")")
 
-    // A loop to simulate foraging
+    // A loop to describe the foraging activities of the main character.
     for item in forage {
         print("\(kingDamian?.name ?? "The King") forages for \(item).")
     }
     
-    // Conditional to handle the encounter with the fox
+    // Conditional to simulate an encounter with a fox and its consequences.
     if kingDamian?.isTailIntact == true {
         print("\(kingDamian?.name ?? "The King") encountered a fox!")
-        // Simulate the bite
-        kingDamian?.isTailIntact = false
-        kingDamian?.tailSize = "none"
+        kingDamian?.isTailIntact = false // The tail is no longer intact.
+        kingDamian?.tailSize = "none" // Update the tail size to reflect the loss.
         print("Oh no! The fox has bitten off \(kingDamian?.name ?? "The King")'s tail!")
     }
     
-    // King Damian mourns the loss of his tail
+    // Express the main character's grief over the loss of his tail.
     if !(kingDamian?.isTailIntact ?? true) {
         print("\(kingDamian?.name ?? "The King") mourns the loss of his beautiful tail, once the pride of the land.")
     }
     
-    // Optional binding to unwrap the kingDamian optional
+    // Optional binding to safely unwrap the kingDamian variable and continue the story.
     if let damian = kingDamian {
         print("Despite the loss, \(damian.name) remains determined to lead the squirrellettes safely through the forest.")
     } else {
-        print("The story cannot continue without our king.")
+        print("The story cannot continue without our king.") // If kingDamian is nil, the story cannot proceed.
     }
 }
 
-//chapterOne()
-
-
-
+// The function chapterOne() is designed to be called from a suitable point in the application to start the story.
+// It currently remains commented out to prevent execution outside of the narrative context.
 
 
 
@@ -87,7 +89,7 @@ func chapterOne() {
 //    var tailSize: String
 //    var description: String
 //}
-//   
+//
 //var damian = Character(name: "Damian", tailSize: "big and luxurious", description: "a courageous squirrel with a magnificent tail")
 //
 //var squirrellettes: [Character] = [squirrellette1, squirrellette2, squirrellette3]

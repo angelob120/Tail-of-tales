@@ -1,38 +1,76 @@
+//
+//  Chapter4.swift
+//  CLIStoryTemplate
+//
+// Chapter 4: Comes back with wisdom about beauty and forgiveness
+
+// Enums to represent the status within the community
+// Chapter 4: The Return of Wisdom
+//  Chapter4.swift
+//  CLIStoryTemplate
+//
+// Chapter 4: Comes back with wisdom about beauty and forgiveness
 import Foundation
 
-// Assuming Squirrel and SquirrelTrait are declared elsewhere in the module
-
-// Function to impart wisdom to the protagonist, which will be called in chapterFour
-func impartWisdom(_ squirrel: Squirrel) -> String {
-    switch squirrel.trait {
-    case .wise:
-        return "The beauty of a squirrel is about the content of its character, not the content of its tail."
-    case .foolish:
-        return "There is more to learn, for wisdom is not yet attained."
+// Struct definition for SquirrelKing representing a character in the story.
+struct SquirrelKing {
+    var hasTail: Bool // Property indicating if the king has a tail.
+    var wisdom: String // Property to store the wisdom the king will share.
+    
+    // Method to print the king's wisdom. It's marked as 'mutating' because it changes the struct's wisdom property.
+    mutating func shareWisdom() {
+        // Concatenates the wisdom string with the message about beauty and character.
+        wisdom = "True beauty lies in the content of one's character, not the content of its tail. " +
+                 "Not all foxes are made evil."
+        // Prints out the wisdom for others to hear.
+        print(wisdom)
     }
 }
 
-// Function for Chapter 4
+// Enumeration to represent the status of the relationship with foxes.
+enum FoxStatus {
+    case peace // Represents a peaceful status with foxes.
+    case conflict // Represents a conflict status with foxes.
+}
+
+// Function to process and print the status of the relationship with foxes.
+func makePeaceWithFoxes(status: FoxStatus) {
+    switch status {
+    case .peace:
+        // If status is peace, print a message about the peace treaty.
+        print("A peace treaty has been established with the foxes.")
+    case .conflict:
+        // If status is conflict, print a message about defending against foxes.
+        print("We must defend our territory from aggressive foxes.")
+    }
+}
+
+// Array holding the names of the squirrel residents in the community.
+var squirrelResidents = ["Squirrel 1", "Squirrel 2", "Squirrel 3"]
+
+// Function to iterate through the squirrelResidents array and address each one.
+func addressSquirrelResidents() {
+    for squirrel in squirrelResidents {
+        // Prints a message addressing each resident squirrel by name.
+        print("Addressing \(squirrel)...")
+        // Each squirrel thanks the king for his wisdom.
+        print("\(squirrel): Thank you for your wisdom, King Damion.")
+    }
+}
+
+// Main function to run Chapter 4 of the story.
 func chapterFour() {
-    // Assuming the protagonist is already defined as a `Squirrel` elsewhere in the module
-    // and it has a `trait` property of an enum type `SquirrelTrait`.
+    // Creates an instance of SquirrelKing named kingDamion without a tail.
+    var kingDamion = SquirrelKing(hasTail: false, wisdom: "")
     
-    // Retrieve the wisdom imparted to the protagonist
-    let wisdom = impartWisdom(protagonist)
-    print(wisdom)
-
-    // Print a message about foxes, demonstrating the use of optionals
-    let foxMessage: String? = getFoxMessage()
-    print(foxMessage ?? "There's no fox here to teach us today.")
-
-    // More code can follow here to develop the story further...
+    // King Damion shares his wisdom.
+    kingDamion.shareWisdom()
+    
+    // A peace status is declared with the foxes.
+    makePeaceWithFoxes(status: .peace)
+    
+    // All the squirrel residents are addressed and acknowledge the king's wisdom.
+    addressSquirrelResidents()
 }
 
-// Assuming getFoxMessage is a function that returns an optional String
-func getFoxMessage() -> String? {
-    // The logic here could check for the presence of a fox and return an appropriate message
-    return "Not all foxes are made evil. Some bring wisdom and kindness."
-}
-
-// Call chapterFour at the appropriate time in your application's flow
-//chapterFour()
+// The function chapterFour() should be called from an appropriate place, like a main.swift file or within an application's lifecycle methods.
