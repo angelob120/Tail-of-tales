@@ -29,15 +29,24 @@ var returned : Bool = true
 
 var berries_in_cheeks = 0
 
+
+
+
+
+
+
+
+
+    
+
+
 //*******************************************************//
 
 func chapterOne() {
     print("Once upon a time, in a dark, sun-dappled forest, there lived a squirrel named \(damian.name) \(damian.name) was not your typical squirrel; \(damian.description)")
     
     print("Damian was invited by the squirrellettes to go find food so he followed them to the patch in the forest close to the foxes territory.")
-    
     print("Their agile paws and sharp eyes scouring the terrain, they picked ripe \(food.berries) from bushes, searched the ground for dropped nuts, and unearthed seeds from the rich soil.")
-    
     print("As they diligently filled their cheek pouches and reveled in nature's abundance.A sly fox with acute instincts stepped out of the undergrowth and eyed the squirrel gathering with a menacing look.")
     didGoToForest = true
     goToForest()
@@ -73,22 +82,23 @@ func returnFromForest() {
       
     
     }
-}
-
-func blah() {
-    while berries_in_cheeks < 5 {
+    while (berries_in_cheeks < 5) {
         berries_in_cheeks += 1
-        print("\(damian.name) picked {berries_in_cheeks} berrie(s) and put them in his cheeks." )
-        print("\(damian.name) has 5 berries in his cheeks now.")
+        print("\(damian.name)picked berries_in_cheeks berries and put them in his cheeks")
+        print("\(damian.name) has 5 berries in his cheek now.")
     }
 }
+
+
+
+
     
     
     //chapterOne()
     
     //*******************************************************//
     
-    //+Variables and constants, +Conditionals, +Functions, +Arrays, +Loops, +Structs, +Enums, Optionals
+    //+Variables and constants, +Conditionals, +Functions, +Arrays, Loops, +Structs, +Enums, Optionals
     
     // paragrap h1 = "Once upon a time, in a dark, sun-dappled forest, there lived a squirrel named Damian. Damian was not your typical squirrel; he was tremendously self-centered. His lush, bushy tail was on display as he pranced around the treetops for the enjoyment of any nearby forest animal. He thought that the woodland's most magnificent feature was his tail. He was certain that he was the most daring and charming squirrel in the forest, and he used every opportunity to prove it. Done
     
