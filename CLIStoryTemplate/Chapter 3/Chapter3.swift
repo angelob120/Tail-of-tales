@@ -21,7 +21,8 @@ func chapterThree() {
     onDay11()
     day12to33()
     onDay34()
-    
+    day36and37()
+    day38to40()
 }
     func first10Days() {
         print("On day \(daysinForest)")
@@ -74,8 +75,6 @@ func chapterThree() {
             print("\(protagonistName) starts to wonder if there might be a way to convince the other squirrels to accept him again but he isn't sure how. \(protagonistName) wants to talk to one of his best squirrel friends, \(bestFriend), to see if there might be a way.")
     }
             
-            
-            
             func onDay34() {
                 print("\(protagonistName) decides to leave some acorns for \(bestFriend) in one of her favorite spots, right beneath her favorite tree. \(bestFriend) discovers the acorns and looks around, saying, Who left all of these acorns here?")
                 print("\(protagonistName) comes out of hiding and approaches \(bestFriend), saying, It was me, \(protagonistName).")
@@ -84,6 +83,7 @@ func chapterThree() {
                 print("\(bestFriend) says, Maybe we can get the other squirrels to come around. We could gather tons of acorns as an offering to get in their good graces. Then they will see you haven't changed.")
                 print("The question for \(protagonistName) and \(bestFriend) is how many acorns would be enough?")
             }
+
             func onDay35() {
                 print("\(protagonistName) and \(bestFriend) believed they needed at least 1000 acorns for their offering. But they couldn't just be any acorns, they had to be really good ones.")
 }
@@ -110,10 +110,18 @@ enum AcornQuality {
         }
     }
 }
-//for the first couple of days, day 36 and 37, Damian and Mia couldn't find any good acorns. (use optional here?)
-//then Damian got some help from his new friends. Ellie was able to spot good spots for acorns by flying over, Delaney gave Mia and // Damian rides to those spots and John, Michael, Ralph and Bob helped them collect tons of acorns, which Delaney helped carry to
-//their storage spot.
-//On day 40, Damian and Mia, with the help of the animals, had collected 10,000 acorns, more than enough to present to the group.
+func day36and37() {
+    var acornsCollected: Int?
+    if let unwrapped = acornsCollected {
+        print("\(protagonistName) and \(bestFriend) were successful in collecting \(unwrapped) acorns.")
+    } else {
+        print("\(protagonistName) and \(bestFriend) did not collect any acorns.")
+    }
+}
+func day38to40() {
+    print("\(protagonistName) turned to his new friends, who helped him find good acorns and collect them so they were ready to be offered to the Squirrel elders.")
+}
+
 
 
 
